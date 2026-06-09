@@ -1,0 +1,63 @@
+{
+  "name": "Book",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the book"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description or synopsis of the book"
+    },
+    "genre": {
+      "type": "string",
+      "description": "The genre of the book"
+    },
+    "context_used": {
+      "type": "string",
+      "description": "The original context/prompt used to generate the book"
+    },
+    "content": {
+      "type": "string",
+      "description": "The full content of the book"
+    },
+    "chapters": {
+      "type": "array",
+      "description": "Array of chapters",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "chapter_number": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "word_count": {
+      "type": "number",
+      "description": "Approximate word count of the book"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "generating",
+        "completed",
+        "error"
+      ],
+      "default": "completed",
+      "description": "Generation status of the book"
+    }
+  },
+  "required": [
+    "title",
+    "content",
+    "context_used"
+  ]
+}
